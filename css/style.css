@@ -1,7 +1,10 @@
 /*********************** CSS UTILI ***********************/
-.contenitore-bg {
+.gradient {
     background: rgb(0, 150, 136);
     background: linear-gradient(180deg, rgba(0, 150, 136, 1) 20%, rgba(216, 219, 213, 1) 20%);
+}
+
+.container {
     height: 100vh;
 }
 
@@ -15,40 +18,41 @@
     height: 4rem;
     line-height: 3.5rem;
 }
-/********************** CSS HEADER ***********************/
 
-header {
+.hover:hover {
+    background-color: #E9EBEB;
+}
+/********************** CSS MAIN-TOP ***********************/
+
+.main-top {
+    height: 50px;
     background-color: #EAEAEA;
-    height: 5%;
 }
 
-/***************************** CSS MAIN ********************/
-
-main {
-    height: 95%;
+/***************************** CSS MAIN-BOTTOM ********************/
+.main-bottom {
+    height: calc(100vh - 2rem - 50px);
 }
 
-main > div.col-5 > div.search {
-    height: 15%;
-    background-color: white;
+.main-bottom div.col-5 > div.search {
+    height: 130px;
 }
 
-main > div.col-5 > div.contacts {
-    height: 85%;
-    background-color: whitesmoke;
-}
-
-main > div.col-5 > div.search > div.notifications {
+.main-bottom div.col-5 > div.search > div.notifications {
     background-color: #8EDAFC;
 }
 
-main > div.col-7 > div.received-message {
-    height: 90%;
+.main-bottom div.col-5 .contacts {
+    height: calc(100% - 130px);
+}
+
+.main-bottom div.col-7 > div.received-message {
+    height: calc(100% - 50px);
     background-color: #E4DCD4;
 }
 
-main > div.col-7 > div.send-message {
-    height: 10%;
+.main-bottom div.col-7 > div.send-message {
+    height: 50px;
     background-color: #F3EEEA;
 }
 

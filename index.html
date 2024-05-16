@@ -23,13 +23,14 @@
 
 <body>
 
-    <div id="app">
+    <div id="app" class="gradient">
         <!-- Creo contenitore 100vh per gradient per non metterlo insieme al div che richiamo in vue.js -->
-        <div class="contenitore-bg p-5">
-            <!-- Container bootstrap con dentro header e main con dentro righe e colonne -->
-            <div class="container h-100">
-                <!-- Inizio header con row e dentro colonna da 5 e colonna da 7 -->
-                <header class="row m-0 align-items-center">
+
+        <!-- Container bootstrap con dentro header e main con dentro righe e colonne -->
+        <div class="container p-0 py-3">
+            <!-- Inizio main con row e dentro colonna da 5 e da 7 con all'interno altre row colonne-->
+            <main>
+                <div class="main-top row m-0 align-items-center">
                     <div class="col-5 p-0 border-end border-secondary">
                         <div class="row m-0">
                             <div class="col-9 px-0 py-2">
@@ -62,11 +63,10 @@
                             </div>
                         </div>
                     </div>
-                </header>
-                <!-- Inizio main con row e dentro colonna da 5 e da 7 con all'interno altre row colonne-->
-                <main class="row m-0">
+                </div>
+                <div class="main-bottom row m-0">
                     <!-- colonna da 5 che ha dentro cerca notifiche e contatti -->
-                    <div class="col-5 p-0 bg-danger">
+                    <div class="col-5 p-0 bg-white h-100">
                         <div class="search">
                             <div class="notifications row m-0 p-1 align-items-center">
                                 <div class="col-2 p-1 text-center my-badge">
@@ -74,7 +74,8 @@
                                 </div>
                                 <div class="col-10 p-1">
                                     <h6 class="m-0">Ricevi notifiche di nuovi messaggi</h6>
-                                    <span class="text-decoration-underline m-0 my-f-size">Attiva notifiche desktop</span>
+                                    <span class="text-decoration-underline m-0 my-f-size">Attiva notifiche
+                                        desktop</span>
                                 </div>
                             </div>
                             <div class="search-bar row m-0 p-0 justify-content-center">
@@ -85,15 +86,25 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="contacts overflow-y-scroll">
-
+                        <!-- lista contatti -->
+                        <div class="contacts row m-0 overflow-y-scroll">
+                            <div class="col-12 p-0" v-for="persona, i in contacts">
+                                <div class="row m-0 py-1 hover">
+                                    <div class="col-3 p-0">
+                                        <img :src="persona.avatar" alt="" class="img-fluid rounded-circle">
+                                    </div>
+                                    <div class="col-9 p-0 px-2">
+                                        <h3 class="m-0"> {{persona.name}} </h3>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- colonna da 7 che ha dentro ricezione messaggi e invio messaggi -->
                     <div class="col-7 p-0">
                         <!-- ricezione messaggi -->
-                        <div class="received-message overflow-y-scroll row m-0">
-                            <div class="col-12 received-message-user p-3">
+                        <div class="received-message row m-0 overflow-y-scroll">
+                            <div class="col-12 received-message-user p-3 ">
                                 <div class="col-12 text-end py-1">
                                     <div class="badge bg-success p-3">ciao come stai?</div>
                                 </div>
@@ -121,10 +132,10 @@
                             </div>
                         </div>
                     </div>
-            </div>
-            </main>
-        </div>
+                </div>
 
+        </div>
+        </main>
     </div>
 
     </div>
