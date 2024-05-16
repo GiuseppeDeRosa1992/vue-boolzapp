@@ -1,1 +1,45 @@
 /*********************** CSS UTILI ***********************/
+.contenitore-bg {
+    background: rgb(0, 150, 136);
+    background: linear-gradient(180deg, rgba(0, 150, 136, 1) 20%, rgba(216, 219, 213, 1) 20%);
+    height: 100vh;
+}
+
+/********************** CSS HEADER ***********************/
+
+header {
+    background-color: #EAEAEA;
+    height: 10%;
+}
+
+/***************************** CSS MAIN ********************/
+
+main {
+    height: 90%;
+}
+
+main > div.col-5 > div.search {
+    height: 15%;
+    background-color: white;
+}
+
+main > div.col-5 > div.contacts {
+    height: 85%;
+    background-color: whitesmoke;
+}
+
+main > div.col-5 > div.search > div.notifications {
+    height: 60%;
+    background-color: #8EDAFC;
+}
+
+main > div.col-7 > div.received-message {
+    height: 90%;
+    background-color: #E4DCD4;
+}
+
+main > div.col-7 > div.send-message {
+    height: 10%;
+    background-color: #F3EEEA;
+}
+

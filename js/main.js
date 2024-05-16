@@ -7,12 +7,12 @@ createApp({
     }
   },
   methods: {
-    axios() {
-      axios.get(/*INSERIRE INDIRIZZO API*/).then((/*ARGOMENTO FUNZIONE*/) => {
-      })
-    }
+    // axios() {
+    //   axios.get(/*INSERIRE INDIRIZZO API*/).then((/*ARGOMENTO FUNZIONE*/) => {
+    //   })
+    // }
   },
   mounted() {
-    this.axios()
+    // this.axios()
   }
 }).mount('#app')
