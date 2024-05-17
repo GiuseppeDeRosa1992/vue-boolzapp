@@ -19,6 +19,10 @@
     line-height: 3.5rem;
 }
 
+.my-w {
+    width: 70px;
+}
+
 .hover:hover {
     background-color: #E9EBEB;
 }

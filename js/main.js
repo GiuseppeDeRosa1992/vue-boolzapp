@@ -168,13 +168,16 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            userClicked : 0,
             lastMessage: "Ultimo messaggio inviato",
             hoursMessage: "12:00",
             contacts
         }
     },
     methods: {
-
+        clicked(index) {
+            this.userClicked = index
+        },
         // axios() {
         //   axios.get(/*INSERIRE INDIRIZZO API*/).then((/*ARGOMENTO FUNZIONE*/) => {
         //   })
