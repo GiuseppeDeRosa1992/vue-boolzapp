@@ -32,25 +32,21 @@
             <main>
                 <div class="main-top row m-0 align-items-center">
                     <div class="col-5 p-0 border-end border-secondary">
-                        <div class="row m-0">
-                            <div class="col-9 px-0 py-2">
-                                <!-- qui va il nome da vue.js -->
+                        <div class="row m-0 justify-content-between align-items-center">
+                            <div class="col-6 p-0">
+                                <img src="./img/avatar_io.jpg" alt="" class="w-25 rounded-circle">
+                                <h4 class="m-0 p-0 d-inline-block"> Giuseppe </h4>
                             </div>
-                            <div class="col-1 px-0 py-2 text-center">
-                                <i class="fa-solid fa-circle-notch"></i>
-                            </div>
-                            <div class="col-1 px-0 py-2 text-center">
-                                <i class="fa-solid fa-message"></i>
-                            </div>
-                            <div class="col-1 px-0 py-2 text-center">
-                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            <div class="col-3 p-0">
+                                <i class="fa-solid fa-circle-notch px-2"></i>
+                                <i class="fa-solid fa-message px-2"></i>
+                                <i class="fa-solid fa-ellipsis-vertical px-2"></i>
                             </div>
                         </div>
                     </div>
                     <div class="col-7 p-0">
                         <div class="row m-0">
-                            <div class="col-9 p-0 py-2">
-                                <!-- qui va il nome da vue.js -->
+                            <div class="col-9 p-0">
                             </div>
                             <div class="col-1 p-0 py-2 text-center">
                                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -68,13 +64,13 @@
                     <!-- colonna da 5 che ha dentro cerca notifiche e contatti -->
                     <div class="col-5 p-0 bg-white h-100">
                         <div class="search">
-                            <div class="notifications row m-0 p-1 align-items-center">
+                            <div class="notifications row m-0 p-2 align-items-center">
                                 <div class="col-2 p-1 text-center my-badge">
                                     <i class="fa-solid fa-bell-slash fa-xl"></i>
                                 </div>
                                 <div class="col-10 p-1">
                                     <h6 class="m-0">Ricevi notifiche di nuovi messaggi</h6>
-                                    <span class="text-decoration-underline m-0 my-f-size">Attiva notifiche
+                                    <span class="text-decoration-underline m-0 my-fs">Attiva notifiche
                                         desktop</span>
                                 </div>
                             </div>
@@ -88,31 +84,89 @@
                         </div>
                         <!-- lista contatti -->
                         <div class="contacts row m-0 overflow-y-scroll">
-                            <div class="col-12 p-0" v-for="persona, i in contacts">
-                                <div class="row m-0 py-1 hover">
-                                    <div class="col-3 p-0">
-                                        <img :src="persona.avatar" alt="" class="img-fluid rounded-circle">
+                            <div class="col-12 p-0">
+                                <template v-for="persona, i in contacts">
+                                    <div class="row m-0 py-1 hover" @click="">
+                                        <div class="col-3 p-0">
+                                            <img :src="persona.avatar" alt="" class="img-fluid rounded-circle">
+                                        </div>
+                                        <div class="col-7 p-0 px-2">
+                                            <h3 class="m-0 fs-5"> {{persona.name}} </h3>
+                                            <p class="text-secondary my-fs m-0"> {{lastMessage}} </p>
+                                        </div>
+                                        <div class="col-2 p-0 text-end">
+                                            <p class="text-secondary my-fs m-0 p-2"> {{hoursMessage}} </p>
+                                        </div>
                                     </div>
-                                    <div class="col-9 p-0 px-2">
-                                        <h3 class="m-0"> {{persona.name}} </h3>
-                                    </div>
-                                </div>
+                                </template>
                             </div>
                         </div>
                     </div>
                     <!-- colonna da 7 che ha dentro ricezione messaggi e invio messaggi -->
-                    <div class="col-7 p-0">
+                    <div class="col-7 p-0 h-100">
                         <!-- ricezione messaggi -->
                         <div class="received-message row m-0 overflow-y-scroll">
-                            <div class="col-12 received-message-user p-3 ">
+                            <div class="col-12 received-message-user p-3">
+                                
                                 <div class="col-12 text-end py-1">
-                                    <div class="badge bg-success p-3">ciao come stai?</div>
-                                </div>
-                                <div class="col-12 text-end py-1">
-                                    <div class="badge bg-success p-3">ciao come stai?</div>
+                                    <div class="badge bg-success p-3">Come stai?</div>
                                 </div>
                                 <div class="col-12 py-1">
-                                    <div class="badge bg-light text-dark p-3">Ciao</div>
+                                    <div class="badge bg-light text-dark p-3">tutto bene</div>
+                                </div>
+                                <div class="col-12 text-end py-1">
+                                    <div class="badge bg-success p-3">Ciao</div>
+                                </div>
+                                <div class="col-12 text-end py-1">
+                                    <div class="badge bg-success p-3">Come stai?</div>
+                                </div>
+                                <div class="col-12 py-1">
+                                    <div class="badge bg-light text-dark p-3">tutto bene</div>
+                                </div>
+                                <div class="col-12 text-end py-1">
+                                    <div class="badge bg-success p-3">Ciao</div>
+                                </div>
+                                <div class="col-12 text-end py-1">
+                                    <div class="badge bg-success p-3">Come stai?</div>
+                                </div>
+                                <div class="col-12 py-1">
+                                    <div class="badge bg-light text-dark p-3">tutto bene</div>
+                                </div>
+                                <div class="col-12 text-end py-1">
+                                    <div class="badge bg-success p-3">Ciao</div>
+                                </div>
+                                <div class="col-12 text-end py-1">
+                                    <div class="badge bg-success p-3">Come stai?</div>
+                                </div>
+                                <div class="col-12 py-1">
+                                    <div class="badge bg-light text-dark p-3">tutto bene</div>
+                                </div>
+                                <div class="col-12 text-end py-1">
+                                    <div class="badge bg-success p-3">Ciao</div>
+                                </div>
+                                <div class="col-12 text-end py-1">
+                                    <div class="badge bg-success p-3">Come stai?</div>
+                                </div>
+                                <div class="col-12 py-1">
+                                    <div class="badge bg-light text-dark p-3">tutto bene</div>
+                                </div>
+                                <div class="col-12 text-end py-1">
+                                    <div class="badge bg-success p-3">Ciao</div>
+                                </div>
+                                <div class="col-12 text-end py-1">
+                                    <div class="badge bg-success p-3">Come stai?</div>
+                                </div>
+                                <div class="col-12 py-1">
+                                    <div class="badge bg-light text-dark p-3">tutto bene</div>
+                                </div>
+                                <div class="col-12 text-end py-1">
+                                    <div class="badge bg-success p-3">Ciao</div>
+                                </div>
+                                <div class="col-12 text-end py-1">
+                                    <div class="badge bg-success p-3">Come stai?</div>
+                                </div>
+                                <div class="col-12 py-1">
+                                    <div class="badge bg-light text-dark p-3">tutto bene</div>
                                 </div>
                             </div>
                         </div>

@@ -8,7 +8,7 @@
     height: 100vh;
 }
 
-.my-f-size {
+.my-fs {
     font-size: 0.8rem;
 }
 
@@ -22,16 +22,24 @@
 .hover:hover {
     background-color: #E9EBEB;
 }
+
+i {
+    color: gray;
+}
+
+i:hover {
+    color: black;
+}
 /********************** CSS MAIN-TOP ***********************/
 
 .main-top {
-    height: 50px;
+    height: 70px;
     background-color: #EAEAEA;
 }
 
 /***************************** CSS MAIN-BOTTOM ********************/
 .main-bottom {
-    height: calc(100vh - 2rem - 50px);
+    height: calc(100vh - 2rem - 70px);
 }
 
 .main-bottom div.col-5 > div.search {
@@ -48,7 +56,7 @@
 
 .main-bottom div.col-7 > div.received-message {
     height: calc(100% - 50px);
-    background-color: #E4DCD4;
+    background-image: url(../img/mine.jpg);
 }
 
 .main-bottom div.col-7 > div.send-message {
