@@ -168,11 +168,13 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            userClicked : 0,
+            userClicked: 0,
             lastMessage: "Ultimo messaggio inviato",
+            lastAccess : "Ultimo Accesso",
             hoursMessage: "12:00",
-            userMessageInput : "",
-            temp : 0,
+            userMessageInput: "",
+            temp: 0,
+            searchInput: "",
             contacts
         }
     },
@@ -181,30 +183,53 @@ createApp({
             this.userClicked = index
         },
         sendMessage() {
-            this.contacts[this.userClicked].messages.push(
-                {
-                    date: Date.now(),
-                    message: this.userMessageInput,
-                    status: 'sent'
-                },
-                this.userMessageInput = "" 
-            )
+            //creo variabile che mi serve per la data e l'ora dopo
+            const today = new Date()
+            
+            const newMessage = {   //// creo data e ora aggiundo le proprietà alla varibaile che ho creato prima
+                date: today.getDate() + "/" + today.getMonth() + "/" + today.getFullYear() + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
+                //// proprieta che mi dice i secondi da gennaio pensavo che mi creava data
+                // date: Date.now(),
+                message: this.userMessageInput,
+                status: 'sent'
+            };
+
+            this.contacts[this.userClicked].messages.push(newMessage)
+
+            this.userMessageInput = ""
+
             this.temp = setTimeout(() => {
                 this.contacts[this.userClicked].messages.push(
                     {
-                        date: Date.now(),
+                        date: today.getDate() + "/" + today.getMonth() + "/" + today.getFullYear() + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
                         message: "Ciao",
                         status: 'received'
                     },
-                ) 
+                )
             }, 1000);
         },
-        
+        //SPLICE PER DATA DA VEDERE PERCHè NON FUNZIONA
+        // spliceString() {
+        //     this.contacts.messages
+        //     {
+        //         this.date.splice(0,11)
+        //     }
+        // },
+
+        deleteMessage() {
+            this.contacts[this.userClicked].messages.push(
+                {
+                    message: "Messaggio cancellato",
+                    status: 'sent'
+                }
+            )
+        },
         // axios() {
         //   axios.get(/*INSERIRE INDIRIZZO API*/).then((/*ARGOMENTO FUNZIONE*/) => {
         //   })
         // }
     },
+
     mounted() {
         // this.axios()
     }

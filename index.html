@@ -18,6 +18,9 @@
     <!--                Importo AXIOS         -->
     <script src="https://unpkg.com/axios@1.6.8/dist/axios.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"
+        integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>VUE BOOLZAPP</title>
 </head>
 
@@ -37,7 +40,7 @@
                                 <img src="./img/avatar_io.jpg" alt="" class="my-w rounded-circle">
                                 <h4 class="m-0 p-0 d-inline-block"> Giuseppe </h4>
                             </div>
-                            <div class="col-4 p-0">
+                            <div class="col-5 p-0 text-end">
                                 <i class="fa-solid fa-circle-notch px-2 fa-xl"></i>
                                 <i class="fa-solid fa-message px-2 fa-xl"></i>
                                 <i class="fa-solid fa-ellipsis-vertical px-2 fa-xl"></i>
@@ -46,13 +49,14 @@
                     </div>
                     <div class="col-7 p-0">
                         <div class="row m-0 align-items-center">
-                            <div class="col-9 p-0">
+                            <div class="col-9 p-0" v-for="data, index in contacts[userClicked].messages">
                                 <div class="d-inline-block">
-                                    <img :src="contacts[userClicked].avatar" alt="" class="my-w rounded-circle align-bottom">
+                                    <img :src="contacts[userClicked].avatar" alt=""
+                                        class="my-w rounded-circle align-bottom">
                                 </div>
                                 <div class="d-inline-block">
                                     <h4 class="m-0"> {{contacts[userClicked].name}} </h4>
-                                    <p class="m-0"> {{lastMessage}} {{hoursMessage}} </p>
+                                    <p class="m-0"> {{lastAccess}} {{data.date}}</p>
                                 </div>
                             </div>
                             <div class="col-3 p-0 py-2 text-center">
@@ -77,11 +81,14 @@
                                         desktop</span>
                                 </div>
                             </div>
-                            <div class="search-bar row m-0 p-0 justify-content-center">
-                                <div class="col-12 p-0 py-2 text-center">
-                                    <i class="fa-solid fa-magnifying-glass"></i>
-                                    <input type="text" class="py-1 border-0" placeholder="Cerca una nuova chat"
-                                        aria-label="Invia un messaggio" aria-describedby="basic-addon1">
+                            <div class="search-bar row m-0 p-0 align-items-center">
+                                <div class="col-12 p-0 py-1 text-center">
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-white" id="basic-addon1"><i
+                                                class="fa-solid fa-magnifying-glass"></i></span>
+                                        <input type="text" class="form-control" placeholder="Cerca nuova chat"
+                                            aria-label="Username" aria-describedby="basic-addon1" v-model="searchInput">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -112,14 +119,26 @@
                             <div class="col-12 received-message-user p-3">
                                 <template v-for="element, index in contacts[userClicked].messages">
                                     <div class="col-12 text-end py-1" v-if="element.status == 'sent'">
-                                        <div class="badge bg-success p-2"> 
+                                        <div class="badge bg-success p-2">
                                             {{element.message}}
+                                            <span class="dropdown">
+                                                <button class="btn dropdown-toggle p-0" type="button" id="dropdownMenu2"
+                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                                    <li><button class="dropdown-item" type="button">Message
+                                                            Info</button></li>
+                                                    <li><button class="dropdown-item" type="button" @click="deleteMessage()">Delete
+                                                            Message</button></li>
+                                                </ul>
+                                            </span>
                                             <p class="m-0 pt-2 text-end"> {{element.date}} </p>
                                         </div>
                                     </div>
                                     <div class="col-12 py-1" v-else>
                                         <div class="badge bg-light text-dark p-2">
-                                            {{element.message}}
+                                            <p class="m-0 text-start">{{element.message}}</p>
+                                            <p class="m-0 pt-2 text-end"> {{element.date}} </p>
                                         </div>
                                     </div>
                                 </template>
@@ -133,7 +152,8 @@
                             <div class="col-8 p-0">
                                 <div>
                                     <input type="text" class="w-100 p-2 border-0" placeholder="Scrivi un messaggio"
-                                        aria-label="Invia un messaggio" aria-describedby="basic-addon1" @keyup.enter="sendMessage()"  v-model="userMessageInput">
+                                        aria-label="Invia un messaggio" aria-describedby="basic-addon1"
+                                        @keyup.enter="sendMessage()" v-model="userMessageInput">
                                 </div>
                             </div>
                             <div class="col-2 p-0 text-center">
