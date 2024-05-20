@@ -215,7 +215,6 @@ createApp({
         //         this.date.splice(0,11)
         //     }
         // },
-
         deleteMessage() {
             this.contacts[this.userClicked].messages.push(
                 {

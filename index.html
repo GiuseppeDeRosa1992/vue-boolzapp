@@ -95,7 +95,7 @@
                         <!-- lista contatti -->
                         <div class="contacts row m-0 overflow-y-scroll">
                             <div class="col-12 p-0">
-                                <template v-for="persona, i in contacts">
+                                <template v-for="persona, i in contacts" v-if="searchInput == persona.name">
                                     <div class="row m-0 py-1 hover" @click="clicked(i)">
                                         <div class="col-3 p-0">
                                             <img :src="persona.avatar" alt="" class="img-fluid rounded-circle">
