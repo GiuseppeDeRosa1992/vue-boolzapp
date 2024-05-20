@@ -216,12 +216,7 @@ createApp({
         //     }
         // },
         deleteMessage() {
-            this.contacts[this.userClicked].messages.push(
-                {
-                    message: "Messaggio cancellato",
-                    status: 'sent'
-                }
-            )
+            this.contacts[this.userClicked].messages[{message: "Messaggio cancellato",status: 'sent'}]
         },
         // axios() {
         //   axios.get(/*INSERIRE INDIRIZZO API*/).then((/*ARGOMENTO FUNZIONE*/) => {
