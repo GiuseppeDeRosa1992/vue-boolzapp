@@ -132,13 +132,15 @@
                                                             Message</button></li>
                                                 </ul>
                                             </span>
-                                            <p class="m-0 pt-2 text-end"> {{element.date}} </p>
+                                            <!-- sulle date uso prima split per farlo diventare array poi splice per cancellare i caratteri che voglio e poi join per farlo diventare di nuovo una stringa pulita -->
+                                            <p class="m-0 pt-2 text-end">{{element.date.split("").splice(11,5).join("")}}</p>
                                         </div>
                                     </div>
-                                    <div class="col-12 py-1" v-else>
+                                    <div class="col-12 py-1" v-else >
                                         <div class="badge bg-light text-dark p-2">
                                             <p class="m-0 text-start">{{element.message}}</p>
-                                            <p class="m-0 pt-2 text-end"> {{element.date}} </p>
+                                            <!-- sulle date uso prima split per farlo diventare array poi splice per cancellare i caratteri che voglio e poi join per farlo diventare di nuovo una stringa pulita -->
+                                            <p class="m-0 pt-2 text-end">{{element.date.split("").splice(11,5).join("")}}</p>
                                         </div>
                                     </div>
                                 </template>

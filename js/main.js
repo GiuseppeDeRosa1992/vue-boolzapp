@@ -7,7 +7,7 @@ const contacts = [
         visible: true,
         messages: [
             {
-                date: '10/01/2020 15:30:55',
+                date:'10/01/2020 15:30:55',
                 message: 'Hai portato a spasso il cane?',
                 status: 'sent'
             },
@@ -208,13 +208,7 @@ createApp({
                 )
             }, 1000);
         },
-        //SPLICE PER DATA DA VEDERE PERCHè NON FUNZIONA
-        // spliceString() {
-        //     this.contacts.messages
-        //     {
-        //         this.date.splice(0,11)
-        //     }
-        // },
+        
         deleteMessage() {
             this.contacts[this.userClicked].messages.push(
                 {
