@@ -7,7 +7,7 @@ const contacts = [
         visible: true,
         messages: [
             {
-                date:'10/01/2020 15:30:55',
+                date: '10/01/2020 15:30:55',
                 message: 'Hai portato a spasso il cane?',
                 status: 'sent'
             },
@@ -169,13 +169,12 @@ createApp({
     data() {
         return {
             userClicked: 0,
-            lastMessage: "Ultimo messaggio inviato",
-            lastAccess : "Ultimo Accesso",
-            hoursMessage: "12:00",
+            lastAccess: "Ultimo Accesso",
+            hoursMessage: new Date().toLocaleString(),
             userMessageInput: "",
             temp: 0,
             searchInput: "",
-            contacts
+            contacts,
         }
     },
     methods: {
@@ -185,9 +184,16 @@ createApp({
         sendMessage() {
             //creo variabile che mi serve per la data e l'ora dopo
             const today = new Date()
-            
+            //creo variabili per mettere lo 0 quando i numeri delle date o dei minuti sono inferiori a 10
+            const day = String(today.getDate()).padStart(2, "0");
+            const month = String(today.getMonth()).padStart(2, "0");
+            const hours = String(today.getHours()).padStart(2, "0");
+            const minutes = String(today.getMinutes()).padStart(2, "0");
+            const seconds = String(today.getSeconds()).padStart(2, "0");
+            const date = day + "/" + month + "/" + today.getFullYear() + " " + hours + ":" + minutes + ":" + seconds
+
             const newMessage = {   //// creo data e ora aggiundo le proprietà alla varibaile che ho creato prima
-                date: today.getDate() + "/" + today.getMonth() + "/" + today.getFullYear() + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
+                date: date,
                 //// proprieta che mi dice i secondi da gennaio pensavo che mi creava data
                 // date: Date.now(),
                 message: this.userMessageInput,
@@ -201,26 +207,26 @@ createApp({
             this.temp = setTimeout(() => {
                 this.contacts[this.userClicked].messages.push(
                     {
-                        date: today.getDate() + "/" + today.getMonth() + "/" + today.getFullYear() + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
+                        date: date,
                         message: "Ciao",
                         status: 'received'
                     },
                 )
             }, 1000);
         },
-        
-        deleteMessage() {
-            this.contacts[this.userClicked].messages.push(
-                {
-                    message: "Messaggio cancellato",
-                    status: 'sent'
-                }
-            )
+
+        deleteMessage(userIndex, messageIndex) {
+            let elemento = this.contacts[userIndex].messages
+            elemento.splice(messageIndex, 1)
         },
         // axios() {
         //   axios.get(/*INSERIRE INDIRIZZO API*/).then((/*ARGOMENTO FUNZIONE*/) => {
         //   })
         // }
+
+        lastMessage(elemento) {
+            return elemento.messages.length - 1
+        }
     },
 
     mounted() {

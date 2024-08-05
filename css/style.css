@@ -20,7 +20,7 @@
 }
 
 .my-w {
-    width: 70px;
+    width: 60px;
 }
 
 .hover:hover {
@@ -34,6 +34,7 @@ i {
 i:hover {
     color: black;
 }
+
 /********************** CSS MAIN-TOP ***********************/
 
 .main-top {
@@ -46,11 +47,11 @@ i:hover {
     height: calc(100vh - 2rem - 70px);
 }
 
-.main-bottom div.col-5 > div.search {
+.main-bottom div.col-5>div.search {
     height: 130px;
 }
 
-.main-bottom div.col-5 > div.search > div.notifications {
+.main-bottom div.col-5>div.search>div.notifications {
     background-color: #8EDAFC;
 }
 
@@ -58,12 +59,12 @@ i:hover {
     height: calc(100% - 130px);
 }
 
-.main-bottom div.col-7 > div.received-message {
+.main-bottom div.col-7>div.received-message {
     height: calc(100% - 50px);
     background-image: url(../img/mine.jpg);
 }
 
-.main-bottom div.col-7 > div.send-message {
+.main-bottom div.col-7>div.send-message {
     height: 50px;
     background-color: #F3EEEA;
 }
@@ -72,4 +73,3 @@ i:hover {
 .notifications i {
     color: #8EDAFC;
 }
-
