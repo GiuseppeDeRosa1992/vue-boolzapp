@@ -99,10 +99,11 @@
                                 <template v-for="persona, i in contacts">
                                     <div class="row m-0 py-1 hover" @click="clicked(i)"
                                         v-show="persona.name.toLowerCase().match(searchInput)">
-                                        <div class="col-sm-3 p-0 d-none d-sm-inline-block">
-                                            <img :src="persona.avatar" alt="" class="img-fluid rounded-circle">
+                                        <div class="col-sm-1 p-0 d-none d-sm-inline-block">
+                                            <img :src="persona.avatar" :alt="'Image' + persona.avatar"
+                                                class="img-fluid rounded-circle">
                                         </div>
-                                        <div class="col-8 col-sm-7 p-0 px-2">
+                                        <div class="col-8 col-sm-9 p-0 px-2">
                                             <h3 class="m-0 fs-5"> {{persona.name}} </h3>
                                             <p class="text-secondary my-fs m-0">
                                                 {{persona.messages[lastMessage(persona)].message}}</p>

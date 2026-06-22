@@ -208,7 +208,7 @@ createApp({
                 this.contacts[this.userClicked].messages.push(
                     {
                         date: date,
-                        message: "Ciao",
+                        message: "Ciao, sto molto bene grazie.",
                         status: 'received'
                     },
                 )
